@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "title": "Science Fair",
+      "date": "2024-10-05",
+      "time": "10:00 AM",
+      "location": "Auditorium",
+      "description": "Annual science fair showcasing student projects."
+    },
+    {
+      "id": 2,
+      "title": "Guest Lecture",
+      "date": "2024-10-10",
+      "time": "2:00 PM",
+      "location": "Room 204",
+      "description": "Guest lecture by an industry expert."
+    }
+  ]
+  

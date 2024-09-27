@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Smart Campus</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/student">Student</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Classes</h5>
+            <p class="card-text">Math, Science, History...</p>
+            <a href="#" class="btn btn-light">View Schedule</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Assignments</h5>
+            <p class="card-text">1 assignment due on Monday.</p>
+            <a href="#" class="btn btn-light">View Assignments</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Events</h5>
+            <p class="card-text">Check your upcoming events.</p>
+            <a href="/student/events" class="btn btn-light">View Events</a> <!-- Updated link -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Class Schedule</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Subject</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>9:00 AM</td>
+          <td>Math</td>
+          <td>Room 101</td>
+        </tr>
+        <tr>
+          <td>10:30 AM</td>
+          <td>Science</td>
+          <td>Room 102</td>
+        </tr>
+        <tr>
+          <td>1:00 PM</td>
+          <td>History</td>
+          <td>Room 201</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Existing Events Section -->
+    <h3>Upcoming Events</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Event Title</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% events.forEach(event => { %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.date.toLocaleDateString() %></td>
+        <td><%= event.time %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

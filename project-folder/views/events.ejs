@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Campus Events</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Smart Campus</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/teacher">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2>Manage Campus Events</h2>
+
+    <!-- Add Event Button with data-toggle and data-target attributes -->
+    <button id="addEventButton" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addEventModal">Add Event</button>
+
+    <!-- Display the event list -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add your event rows here dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add Event Modal -->
+  <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEventModalLabel">Add New Event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addEventForm">
+            <div class="form-group">
+              <label for="eventName">Event Title</label>
+              <input type="text" class="form-control" id="eventName" name="eventName" required>
+            </div>
+            <div class="form-group">
+              <label for="eventDate">Event Date</label>
+              <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+            </div>
+            <div class="form-group">
+              <label for="eventTime">Event Time</label>
+              <input type="time" class="form-control" id="eventTime" name="eventTime" required>
+            </div>
+            <div class="form-group">
+              <label for="eventLocation">Event Location</label>
+              <input type="text" class="form-control" id="eventLocation" name="eventLocation" required>
+            </div>
+            <div class="form-group">
+              <label for="eventDescription">Event Description</label>
+              <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" required></textarea>
+            </div>
+            <button type="button" class="btn btn-success" id="saveEventButton">Save Event</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // JavaScript to handle modal actions
+    document.getElementById('saveEventButton').addEventListener('click', function() {
+      const eventName = document.getElementById('eventName').value;
+      const eventDate = document.getElementById('eventDate').value;
+      const eventTime = document.getElementById('eventTime').value;
+      const eventLocation = document.getElementById('eventLocation').value;
+      const eventDescription = document.getElementById('eventDescription').value;
+
+      if (eventName && eventDate && eventTime && eventLocation && eventDescription) {
+        // Here you would normally submit this data to your server via an API
+        alert('Event Created: ' + eventName);
+
+        // Close the modal
+        $('#addEventModal').modal('hide');
+
+        // Reset the form
+        document.getElementById('addEventForm').reset();
+      } else {
+        alert('Please fill in all fields');
+      }
+    });
+  </script>
+</body>
+</html>
